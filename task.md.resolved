@@ -1,0 +1,59 @@
+# Floor Plan Tool — Android App Conversion
+
+## Phase 1: Project Scaffold
+- [ ] Create Android project with Gradle (Kotlin + Compose + Material 3)
+- [ ] Set up project structure: packages for model, viewmodel, ui, renderer, util
+- [ ] Configure dependencies (Compose, Serialization, PDF, testing)
+
+## Phase 2: Data Model & Core Logic
+- [ ] Define data classes: `PlanDocument`, `Annotation`, `RefAnchors`, `PointD`, `OffsetD`, `AnnoType`
+- [ ] Implement camera transforms: `screenToPlan`, `planToScreen`, `fitToScreen`, `zoomAt`
+- [ ] Implement re-register transform math
+- [ ] Implement clustering logic
+- [ ] Implement JSON serialization/deserialization
+
+## Phase 3: Renderer
+- [ ] Create `FloorPlanRenderer` class (draws to any Canvas)
+- [ ] Draw base plan bitmap
+- [ ] Draw grid overlay (calibrated, with thresholds)
+- [ ] Draw crosshairs with rings + cluster counts
+- [ ] Draw label boxes + leader lines (RED)
+- [ ] Draw A4 overlay
+- [ ] Draw mode-specific helpers (rubber bands, distance tags)
+- [ ] Draw reference anchors
+
+## Phase 4: UI & Interactions
+- [ ] Main screen layout: TopBar + Canvas + BottomSheet
+- [ ] Mode selection UI
+- [ ] Annotation inputs (name, details, type, crosshair size)
+- [ ] Gesture handling: pinch zoom, pan, tap, long-press
+- [ ] Mode-dependent tap handling (calibration, annotation, place1/2, reregister)
+- [ ] Label hit-testing, selection, dragging
+- [ ] Edit dialog (long-press or edit button)
+- [ ] Quick actions: Fit, Zoom In/Out, Grid toggle, A4 toggle
+- [ ] Delete selected annotation
+
+## Phase 5: Import/Export
+- [ ] Image import via SAF
+- [ ] PDF import via PdfRenderer (page 1, quality setting)
+- [ ] JSON export via SAF
+- [ ] JSON import via SAF
+- [ ] PNG export (offscreen render + optional details block)
+- [ ] PDF export via PdfDocument
+
+## Phase 6: Documentation
+- [ ] ARCHITECTURE.md
+- [ ] TEST_PLAN.md
+- [ ] DATA_FORMAT.md
+
+## Phase 7: Testing
+- [ ] Unit tests: transform math round-trip
+- [ ] Unit tests: re-register transform
+- [ ] Unit tests: JSON round-trip
+- [ ] Instrumented tests: import → calibrate → annotate → edit → export
+
+## Phase 8: Verification
+- [ ] Build succeeds
+- [ ] Unit tests pass
+- [ ] Instrumented tests pass
+- [ ] Manual walkthrough documented
